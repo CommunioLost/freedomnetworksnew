@@ -8,6 +8,7 @@ const app = express();
 const server = createServer();
 const bare = createBareServer('/bare/');
 
+// Periodically check if the request is for the proxy or the website
 app.use(express.static(__dirname));
 
 server.on('request', (req, res) => {
@@ -26,4 +27,8 @@ server.on('upgrade', (req, socket, head) => {
     }
 });
 
-server.listen({ port: process.env.PORT || 3000 });
+// Replit uses process.env.PORT automatically
+const PORT = process.env.PORT || 3000;
+server.listen({ port: PORT }, () => {
+    console.log(`Freedom Networks active on port ${PORT}`);
+});
