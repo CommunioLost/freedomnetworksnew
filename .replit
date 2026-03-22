@@ -1,0 +1,4 @@
+run = "npm start"
+
+[languages.javascript]
+nodeBin = "node"
