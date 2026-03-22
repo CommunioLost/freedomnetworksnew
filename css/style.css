@@ -2,6 +2,7 @@
     --glass: rgba(255, 255, 255, 0.1);
     --border: rgba(255, 255, 255, 0.2);
     --text: #ffffff;
+    --accent: #7f7fd5;
 }
 
 body {
@@ -25,15 +26,28 @@ body {
     padding: 3rem;
     text-align: center;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    width: 400px;
+    width: 420px;
+    animation: fadeInScale 0.8s ease-out;
 }
 
-.logo { width: 80px; margin-bottom: 1rem; }
+/* GIF Logo Styling */
+.logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1) rotate(2deg);
+}
 
 .title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
     letter-spacing: -1px;
+    font-weight: 700;
 }
 
 .splash-text {
@@ -41,11 +55,12 @@ body {
     opacity: 0.7;
     margin-bottom: 2rem;
     height: 1.2rem;
+    font-style: italic;
 }
 
 .search-bar {
     width: 100%;
-    padding: 12px 20px;
+    padding: 14px 20px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -58,20 +73,29 @@ body {
 
 .search-bar:focus {
     background: rgba(255, 255, 255, 0.1);
-    border-color: #7f7fd5;
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(127, 127, 213, 0.3);
 }
 
-.controls { margin-top: 1.5rem; }
+.controls { margin-top: 2rem; }
 
 .btn-secondary {
     background: transparent;
     border: 1px solid var(--border);
     color: white;
-    padding: 8px 16px;
+    padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 0.8rem;
-    transition: 0.2s;
+    font-size: 0.85rem;
+    transition: 0.3s;
 }
 
-.btn-secondary:hover { background: var(--border); }
+.btn-secondary:hover {
+    background: white;
+    color: black;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
